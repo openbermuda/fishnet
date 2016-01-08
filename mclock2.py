@@ -50,7 +50,8 @@ class MClock:
         self.running = False
 
     credits = ("M Clock 2.0\n"
-               "by Guido van Rossum\n"
+               "by Johnny Gill\n"
+               "after tkinter by Guido van Rossum\n"
                "after a design by Rob Juda")
 
     creditid = None
@@ -158,17 +159,20 @@ class MClock:
         litsize = self.litsize * scale
         img = self.img
 
+        r, g, b = colour
+        xcolour = (255-r, 255-g, 255-b)
+
         b = img.line([radius, radius,
                       radius + int(bigsize*math.cos(bigr)),
                       radius - int(bigsize*math.sin(bigr))],
-                     width=8,
-                     fill=colour)
+                     width=10,
+                     fill=xcolour)
 
         l = img.line([radius, radius,
                       radius + int(bigsize*math.cos(litr)),
                       radius - int(bigsize*math.sin(litr))],
-                     width=8,
-                     fill=(255,255,255))
+                     width=10,
+                     fill=colour)
 
 
     def drawbg(self, bigd, litd, secd, colors=(0, 1, 2)):
