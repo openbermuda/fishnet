@@ -152,7 +152,6 @@ class MClock:
 
     def draw_hands(self, bigr, litr, colour=(0,0,0), scale=1.0):
 
-        return
         # Draw the hands
         radius = self.radius
         bigsize = self.bigsize * scale
@@ -160,16 +159,16 @@ class MClock:
         img = self.img
 
         b = img.line([radius, radius,
-                      radius + bigsize*math.cos(bigr),
-                      radius - bigsize*math.sin(bigr)],
-                     width=2,
+                      radius + int(bigsize*math.cos(bigr)),
+                      radius - int(bigsize*math.sin(bigr))],
+                     width=8,
                      fill=colour)
-        
+
         l = img.line([radius, radius,
-                      radius + litsize*math.cos(litr),
-                      radius - litsize*math.sin(litr)],
-                     width=1,
-                     fill=colour)
+                      radius + int(bigsize*math.cos(litr)),
+                      radius - int(bigsize*math.sin(litr))],
+                     width=8,
+                     fill=(255,255,255))
 
 
     def drawbg(self, bigd, litd, secd, colors=(0, 1, 2)):
