@@ -91,7 +91,6 @@ class MClock:
                 ypos = size * y
 
                 pix = self.pixel_picker(xpos, ypos, size, size)
-                print(pix)
 
                 self.hat.set_pixel(x, y, pix)
 
