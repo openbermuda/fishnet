@@ -90,7 +90,8 @@ class MClock:
                 xpos = size * x
                 ypos = size * y
 
-                pix = self.pick_pixel(xpos, ypos, size, size)
+                pix = self.pixel_picker(xpos, ypos, size, size)
+                print(pix)
 
                 self.hat.set_pixel(x, y, pix)
 
@@ -112,6 +113,36 @@ class MClock:
 
         return pix
 
+    def weighted_pick_pixel(self, xpos, ypos, xx, yy):
+
+        rr = gg =bb = 0
+
+        weight = 0
+        for x in range(xx):
+            for y in range(yy):
+
+                # Use Euclidean distance from centre as weight
+                this_weight = (abs(x - xx/2)) ** 2 
+                this_weight += (abs(y - yy/2)) ** 2
+
+                this_weight = this_weight ** 0.5
+                weight += this_weight
+                
+                r, g, b = self.image.getpixel((xpos + x, ypos + y))
+
+                rr += this_weight * r
+                gg += this_weight * g
+                bb += this_weight * b
+
+        count = weight
+        pix = (int(rr // count),
+               int(gg // count),
+               int(bb // count))
+
+        return pix
+
+    pixel_picker = weighted_pick_pixel
+    
     def xpick_pixel(self, xpos, ypos, xx, yy):
 
         pickx = random.randint(0, xx-1)
