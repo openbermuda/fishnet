@@ -191,17 +191,18 @@ class MClock:
 
         r, g, b = colour
         xcolour = (255-r, 255-g, 255-b)
+        xcolour = (255, 0, 0)
 
         b = img.line([radius, radius,
                       radius + int(bigsize*math.cos(bigr)),
                       radius - int(bigsize*math.sin(bigr))],
-                     width=10,
+                     width=12,
                      fill=xcolour)
 
         l = img.line([radius, radius,
                       radius + int(bigsize*math.cos(litr)),
                       radius - int(bigsize*math.sin(litr))],
-                     width=10,
+                     width=12,
                      fill=colour)
 
 
