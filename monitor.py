@@ -56,6 +56,7 @@ def show_all_stats(hat, show=None):
 if __name__ == '__main__':
 
     import datetime
+    import time
     import csv
     import sys
 
