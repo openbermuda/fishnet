@@ -68,7 +68,7 @@ if __name__ == '__main__':
               
     while True:
         
-        writer.write(stats.values())))
+        writer.write(stats.values())
         time.sleep(5)
         stats = get_stats()
         stats['timestamp'] = datetime.datetime.now()
