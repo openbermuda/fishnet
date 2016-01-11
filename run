@@ -1,0 +1,3 @@
+#!/bin/bash
+
+python3 fishnet/mclock2.py
