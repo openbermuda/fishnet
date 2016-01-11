@@ -62,7 +62,7 @@ if __name__ == '__main__':
     writer = csv.writer(sys.stdout)
     
     hat = sense_hat.SenseHat()
-    stats = get_stats()
+    stats = get_stats(hat)
     stats['timestamp'] = datetime.datetime.now()
     print(','.join(stats.keys()))
               
@@ -70,7 +70,7 @@ if __name__ == '__main__':
         
         writer.write(stats.values())
         time.sleep(5)
-        stats = get_stats()
+        stats = get_stats(hat)
         stats['timestamp'] = datetime.datetime.now()
 
     
