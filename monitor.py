@@ -55,6 +55,24 @@ def show_all_stats(hat, show=None):
 
 if __name__ == '__main__':
 
+    import datetime
+    import csv
+    import sys
+
+    writer = csv.writer(sys.stdout)
+    
     hat = sense_hat.SenseHat()
-    show_all_stats(hat)
+    stats = get_stats()
+    stats['timestamp'] = datetime.datetime.now()
+    print(','.join(stats.keys()))
+              
+    while True:
+        
+        writer.write(stats.values())))
+        time.sleep(5)
+        stats = get_stats()
+        stats['timestamp'] = datetime.datetime.now()
+
+    
+        
 
