@@ -2,5 +2,5 @@
 
 python3 fishnet/mclock2.py &
 
-python3 fishnet/monitor.py > /home/pi/readings.csv
+python3 fishnet/monitor.py >> /home/pi/readings.csv
 
