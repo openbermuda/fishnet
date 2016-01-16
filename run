@@ -1,0 +1,6 @@
+#!/bin/bash
+
+python3 fishnet/mclock2.py &
+
+python3 fishnet/monitor.py > /home/pi/readings.csv
+
