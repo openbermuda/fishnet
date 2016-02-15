@@ -112,7 +112,7 @@ class MClock:
 
         return pix
 
-    def weighted_pick_pixel(self, xpos, ypos, xx, yy):
+    def weighted_pick_pixel(self, xpos, ypos, xx, yy, dim=0.9):
 
         rr = gg =bb = 0
 
@@ -125,6 +125,8 @@ class MClock:
                 this_weight += (abs(y - yy/2)) ** 2
 
                 this_weight = this_weight ** 0.5
+
+                this_weight *= dim
                 weight += this_weight
                 
                 r, g, b = self.image.getpixel((xpos + x, ypos + y))
