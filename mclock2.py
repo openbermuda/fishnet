@@ -258,9 +258,15 @@ class MClock:
                             fill=tuple(fill))
             i+=1
 
-def main():
-    MClock().run()
+def main(dim=0.5):
+    MClock(dim=dim).run()
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    dim = 0.5
+    if len(sys.argv) > 1:
+        dim = float(sys.argv[1])
+
+    main(dim)
         
