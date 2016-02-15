@@ -127,7 +127,6 @@ class MClock:
 
                 this_weight = this_weight ** 0.5
 
-                this_weight *= self.dim
                 weight += this_weight
                 
                 r, g, b = self.image.getpixel((xpos + x, ypos + y))
@@ -136,7 +135,7 @@ class MClock:
                 gg += this_weight * g
                 bb += this_weight * b
 
-        count = weight
+        count = weight / self.dim
         pix = (int(rr // count),
                int(gg // count),
                int(bb // count))
