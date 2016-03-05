@@ -68,6 +68,9 @@ ZeroNet
 Sunshine
 --------
 
+Jupyter
+-------
+
 Ingredients
 ===========
 
