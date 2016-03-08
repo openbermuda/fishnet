@@ -39,8 +39,10 @@ already a powerful machine for the power consumption.
 Getting Started
 ===============
 
-Install Raspian
----------------
+Install Raspbian
+----------------
+
+
 
 PiConnect
 ---------
