@@ -42,7 +42,7 @@ Getting Started
 Install Raspbian
 ----------------
 
-
+Download the latest raspbian image and put it on an SD card.
 
 PiConnect
 ---------
