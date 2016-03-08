@@ -44,8 +44,21 @@ Install Raspbian
 
 Download the latest raspbian image and put it on an SD card.
 
-PiConnect
----------
+See http://raspbian.org/ for how to do this.
+
+Starting the pi
+---------------
+
+Once you have raspbian on your SD card you can start up the raspberry
+pi.
+
+There are two options.
+
+Connect the pi to a display and keyboard
+''''''''''''''''''''''''''''''''''''''''
+
+Network connection from another machine
+'''''''''''''''''''''''''''''''''''''''
 
 Add aceboy
 ----------
