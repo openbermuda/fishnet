@@ -47,7 +47,7 @@ Download the latest raspbian image and put it on an SD card.
 See http://raspbian.org/ for how to do this.
 
 Windows install
-+++++++++++++++
+'''''''''''''''
 
 https://sourceforge.net/projects/win32diskimager/files/latest/download
 
@@ -66,6 +66,11 @@ Connect the pi to a display and keyboard
 
 Network connection from another machine
 '''''''''''''''''''''''''''''''''''''''
+
+Windows
++++++++
+
+http://carbonstone.blogspot.com/2014/02/connecting-to-pi-from-laptops-ethernet.html
 
 Add aceboy
 ----------
