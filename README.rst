@@ -53,6 +53,45 @@ https://sourceforge.net/projects/win32diskimager/files/latest/download
 
 Use the disk imager to write the image to the SD card
 
+OK, so hit a few snags, but
+---------------------------
+
+It works great from at least one computer in the world :)
+
+Connecting via a network cable to the pi.
+
+Then using ssh:
+
+  ssh -v pi@192.168.1.1
+
+but if this fails check what your dhcp server is doing.
+  
+When prompted for a pasword, use "raspberry".
+
+I've been thinking about connecting to sites with interesting data or
+compute power, open data, and lots more.
+
+Being able to deploy images with good security and repeatable
+(automatic) installs would be valuable in lots of directions.  It would
+be great for the pi's.
+
+Just a "copy this raspbian, run this install script, by the way you
+might be connected to:
+
+  * nothing
+  * internet?
+  * another computer by ethernet cable?
+  * wifi
+  * bluetooth
+  * sensors
+
+If it found a way to give me a hint where and (when?) it thinks it is
+that would helpful,
+
+And it somehow gets me where I can ssh to it or wifi connection and
+log on.
+
+
 Starting the pi
 ---------------
 
