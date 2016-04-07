@@ -2,7 +2,7 @@
 
 """M CLOCK 2.0."""
 
-import sys
+import argparse
 import time
 import math
 from sense_hat import SenseHat
@@ -19,7 +19,7 @@ def radians(angle):
 
 class MClock:
 
-    def __init__(self, radius=200, segments=9, dim=0.8):
+    def __init__(self, radius=200, segments=9, dim=0.8, sleep=5.0):
         self.segments = segments
 
         self.image = Image.new('RGB', (RADIUS * 2, RADIUS * 2))
@@ -30,6 +30,7 @@ class MClock:
         self.hat = SenseHat()
         self.radius = RADIUS
         self.dim = dim
+        self.sleep = sleep
         self.recalc(self.radius*2, self.radius*2)
 
 
@@ -74,7 +75,7 @@ class MClock:
             hh, mm, ss = time.localtime(t)[3:6]
             self.draw(hh, mm, ss)
             self.blit()
-            time.sleep(1.0)
+            time.sleep(self.sleep)
 
     def blit(self):
         """ Update the image on the sense hat
@@ -257,15 +258,23 @@ class MClock:
                             fill=tuple(fill))
             i+=1
 
-def main(dim=0.5):
-    MClock(dim=dim).run()
+def get_parser():
+
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument('--dim', type=float, default=0.7)
+    parser.add_argument('--sleep', type=float, default=5.0)
+
+    return parser
+
+def main(args):
+    MClock(dim=args.dim, sleep=args.sleep).run()
 
 if __name__ == "__main__":
-    import sys
 
-    dim = 0.5
-    if len(sys.argv) > 1:
-        dim = float(sys.argv[1])
+    parser = get_parser()
 
-    main(dim)
+    args = parser.parse_args
+
+    main(args)
         
