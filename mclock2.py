@@ -19,14 +19,17 @@ def radians(angle):
 
 class MClock:
 
-    def __init__(self, radius=200, segments=9, dim=0.8, sleep=5.0, hands=True):
+    def __init__(self, radius=200, segments=9,
+                 dim=0.8, sleep=5.0,
+                 hands=True, seconds=False):
+        
         self.segments = segments
 
         self.image = Image.new('RGB', (RADIUS * 2, RADIUS * 2))
         self.img = ImageDraw.Draw(self.image)
         
         self.display_credits =  False
-        self.seconds = True
+        self.seconds = seconds
         self.hat = SenseHat()
         self.radius = RADIUS
         self.dim = dim
@@ -268,12 +271,13 @@ def get_parser():
     parser.add_argument('--dim', type=float, default=0.7)
     parser.add_argument('--sleep', type=float, default=5.0)
     parser.add_argument('--nohands', action='store_true')
+    parser.add_argument('--seconds', action='store_true')
 
     return parser
 
 def main(args):
     hands = not args.nohands
-    MClock(dim=args.dim, sleep=args.sleep, hands=hands).run()
+    MClock(dim=args.dim, sleep=args.sleep, hands=hands, seconds=args.seconds).run()
 
 if __name__ == "__main__":
 
