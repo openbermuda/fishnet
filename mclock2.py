@@ -85,39 +85,36 @@ class MClock:
     def blit(self):
         """ Update the image on the sense hat
 
-        Need to downsample from RADIUS to 8
+        Need to downsample from width x height to 8 x 8
 
-        Let's just pick a pixel at random and see how that works
         """
+
+        # 1/8 th of diameter
         size = self.radius // 4
 
+        self.width = self.height = size
+        pixels = self.pick_pixels()
+
+        self.hat.set_pixels(pixels)
+        
+    
+    def pick_pixels(self):
+        """ Pick a random pixel for each on the hat """
+        pickx = random.randint(0, xx-1)
+        picky = random.randint(0, xx-1)
+
+        pixels = []
         for x in range(8):
             for y in range(8):
                 
-                xpos = size * x
-                ypos = size * y
-
-                pix = self.pixel_picker(xpos, ypos, size, size)
-
-                self.hat.set_pixel(x, y, pix)
-
-    def pick_pixel(self, xpos, ypos, xx, yy):
-
-        rr = gg =bb = 0
-        
-        for x in range(xx):
-            for y in range(yy):
+                xpos = self.width * x
+                ypos = self.height * y
                 
-                r, g, b = self.image.getpixel((xpos + x, ypos + y))
 
-                rr += r
-                gg += g
-                bb += b
+                pix = self.image.getpixel((xpos + pickx, ypos + picky))
+                pixels.append(pix)
 
-        count = xx * yy
-        pix = (rr // count, gg // count, bb // count)
-
-        return pix
+        return pixels
 
     def weighted_pick_pixel(self, xpos, ypos, xx, yy):
 
