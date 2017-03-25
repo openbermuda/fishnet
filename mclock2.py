@@ -100,8 +100,8 @@ class MClock:
     
     def pick_pixels(self):
         """ Pick a random pixel for each on the hat """
-        pickx = random.randint(0, xx-1)
-        picky = random.randint(0, xx-1)
+        pickx = random.randint(0, self.width-1)
+        picky = random.randint(0, self.height-1)
 
         pixels = []
         for x in range(8):
