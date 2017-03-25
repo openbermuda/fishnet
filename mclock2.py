@@ -148,7 +148,7 @@ class MClock:
 
         return pix
 
-    pixel_picker = weighted_pick_pixel
+    #pixel_picker = weighted_pick_pixel
     
     def xpick_pixel(self, xpos, ypos, xx, yy):
 
@@ -158,6 +158,8 @@ class MClock:
         pix = self.image.getpixel((xpos + pickx, ypos + picky))
 
         return pix
+
+    pixel_picker = xpick_pixel
 
     def get_angles(self, hh, mm, ss):
         
