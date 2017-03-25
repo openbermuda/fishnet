@@ -1,6 +1,6 @@
 #!/bin/bash
 
-python3 fishnet/mclock2.py --dim 0.7 &
+python3.6 fishnet/mclock2.py --dim 0.7 &
 
-python3 fishnet/monitor.py >> /home/pi/readings.csv
+python3.6 fishnet/monitor.py >> /home/pi/readings.csv
 
